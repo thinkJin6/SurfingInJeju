@@ -3,13 +3,15 @@ import styled from 'styled-components';
 
 import { SpotInfo, SpotLists } from '../components';
 import { useSpotContext } from '../contexts/spot_context';
-import { Loading, Error } from '../components';
+import { Loading } from '../components';
+import ErrorPage from './ErrorPage';
 
 const MainPage = () => {
-  const { isLoading, isError } = useSpotContext();
+  const { isLoading, isError, spots_data, spots_info } = useSpotContext();
 
-  if (isLoading) return <Loading />;
-  if (isError) return <Error />;
+  // Return loading till get All datas
+  if (isLoading || spots_data.length !== spots_info.length) return <Loading />;
+  if (isError) return <ErrorPage />;
 
   return (
     <Wrapper>

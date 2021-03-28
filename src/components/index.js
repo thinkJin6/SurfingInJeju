@@ -2,6 +2,6 @@ import Navbar from './Navbar';
 import SpotInfo from './SpotInfo';
 import SpotLists from './SpotLists';
 import Loading from './Loading';
-import Error from './Error';
+import Stars from './Stars';
 
-export { Navbar, SpotInfo, SpotLists, Loading, Error };
+export { Navbar, SpotInfo, SpotLists, Loading, Stars };

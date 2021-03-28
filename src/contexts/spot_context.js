@@ -3,13 +3,21 @@ import reducer from '../reducers/spot_reducer';
 import axios from 'axios';
 
 import { baseUrl, spots, errorMsg } from '../utils/config';
-import { GET_SPOTS_BEJIN, GET_SPOTS_SUCCESS, GET_SPOTS_ERROR } from '../action';
+import { getCurrentHour } from '../utils/helpers';
+import {
+  GET_SPOTS_BEJIN,
+  GET_SPOTS_SUCCESS,
+  GET_SPOTS_ERROR,
+  SORT_SPOTS,
+} from '../action';
 
 const initialState = {
   isLoading: true,
   isError: false,
-  spots_data: [...spots],
-  selected_spot: 0,
+  spots_info: [...spots],
+  spots_data: [],
+  selectedSpot: 0,
+  currentHour: getCurrentHour(),
 };
 
 const SpotContext = React.createContext();
@@ -17,7 +25,7 @@ const SpotContext = React.createContext();
 export const SpotProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchSpotsData = async (url) => {
+  const fetchSpotsData = async (url, spot) => {
     try {
       dispatch({ type: GET_SPOTS_BEJIN });
 
@@ -28,7 +36,7 @@ export const SpotProvider = ({ children }) => {
 
       dispatch({
         type: GET_SPOTS_SUCCESS,
-        payload: { data, spots: state.spots_data },
+        payload: { data, spot },
       });
     } catch (err) {
       dispatch({ type: GET_SPOTS_ERROR });
@@ -36,17 +44,23 @@ export const SpotProvider = ({ children }) => {
     }
   };
 
+  const sortSpotsById = () => {
+    dispatch({ type: SORT_SPOTS, payload: { spots: state.spots_data } });
+  };
+
   // Get base datas for SpotLists component
   useEffect(() => {
-    state.spots_data.map((spot) => {
+    state.spots_info.map((spot) => {
       const { lat, lng } = spot;
 
-      fetchSpotsData(`${baseUrl}${lat},${lng}`);
+      fetchSpotsData(`${baseUrl}${lat},${lng}`, spot);
     });
   }, []);
 
   return (
-    <SpotContext.Provider value={{ ...state }}>{children}</SpotContext.Provider>
+    <SpotContext.Provider value={{ ...state, sortSpotsById }}>
+      {children}
+    </SpotContext.Provider>
   );
 };
 

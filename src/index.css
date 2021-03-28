@@ -1,11 +1,16 @@
 :root {
   --color-primary-light: #63cdd7;
-  --color-primary-dark: #036780;
+  --color-primary-light-2: #7dceec;
+  --color-primary-light-3: #cdecf9;
+
+  --color-primary-dark: #009ed8;
 
   --color-secondary: ;
 
+  --color-white: #fff;
+
   --color-grey-light-1: #f9f7f6;
-  --color-grey-light-2: rgb(212, 211, 211);
+  --color-grey-light-2: #f5f5f5;
   --color-grey-dark-1: #777;
 }
 
@@ -30,7 +35,7 @@ body {
   overflow: hidden;
 
   color: var(--color-grey-light-1);
-  background-color: var(--color-grey-light-1);
+  background-color: var(--color-white);
 }
 
 .main {

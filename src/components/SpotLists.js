@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 import { useSpotContext } from '../contexts/spot_context';
 import { formatWaveHeight } from '../utils/helpers';
-import Loading from './Loading';
 import Stars from './Stars';
 
 const SpotLists = () => {
-  const { spots_data, sortSpotsById, currentHour } = useSpotContext();
+  const {
+    spots_data,
+    sortSpotsById,
+    currentHour,
+    pathId,
+    setPathId,
+  } = useSpotContext();
 
   useEffect(() => {
     sortSpotsById();
@@ -23,7 +30,12 @@ const SpotLists = () => {
           } = data[0].hourly[currentHour];
 
           return (
-            <li key={id}>
+            <Link
+              key={id}
+              className={`list ${pathId === id && 'selected'}`}
+              to={`/main/${id}`}
+              onClick={() => setPathId(id)}
+            >
               <div>
                 <img src={img} alt={name} />
               </div>
@@ -32,7 +44,7 @@ const SpotLists = () => {
                 <h5>{formatWaveHeight(waveHeight)}</h5>
                 <Stars prop={{ waveHeight, windSpeedMile }} />
               </article>
-            </li>
+            </Link>
           );
         })}
       </ul>
@@ -55,15 +67,32 @@ const Wrapper = styled.section`
     justify-content: space-evenly;
   }
 
-  li {
+  .list {
     width: 100%;
     height: 10rem;
     background-color: var(--color-white);
     margin-top: 2.3rem;
     border-radius: 3px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: all 0.3s ease;
 
     display: flex;
+  }
+
+  .list:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  .list:last-child {
+    margin-bottom: 5rem;
+  }
+
+  .selected {
+    transform: translateY(-3px) scale(1.05);
+    filter: contrast(130%);
   }
 
   img {

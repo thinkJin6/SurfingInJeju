@@ -8,9 +8,11 @@
   --color-secondary: ;
 
   --color-white: #fff;
+  --color-dark: #000;
 
   --color-grey-light-1: #f9f7f6;
   --color-grey-light-2: #f5f5f5;
+  --color-grey-light-3: #f1f1f1;
   --color-grey-dark-1: #777;
 }
 

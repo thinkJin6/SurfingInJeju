@@ -9,6 +9,7 @@ import {
   GET_SPOTS_SUCCESS,
   GET_SPOTS_ERROR,
   SORT_SPOTS,
+  SET_PATH_ID,
 } from '../action';
 
 const initialState = {
@@ -16,7 +17,7 @@ const initialState = {
   isError: false,
   spots_info: [...spots],
   spots_data: [],
-  selectedSpot: 0,
+  pathId: 0,
   currentHour: getCurrentHour(),
 };
 
@@ -48,6 +49,10 @@ export const SpotProvider = ({ children }) => {
     dispatch({ type: SORT_SPOTS, payload: { spots: state.spots_data } });
   };
 
+  const setPathId = (id) => {
+    dispatch({ type: SET_PATH_ID, payload: { id } });
+  };
+
   // Get base datas for SpotLists component
   useEffect(() => {
     state.spots_info.map((spot) => {
@@ -58,7 +63,7 @@ export const SpotProvider = ({ children }) => {
   }, []);
 
   return (
-    <SpotContext.Provider value={{ ...state, sortSpotsById }}>
+    <SpotContext.Provider value={{ ...state, sortSpotsById, setPathId }}>
       {children}
     </SpotContext.Provider>
   );

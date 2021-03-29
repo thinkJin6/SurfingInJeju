@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Navbar } from './components';
-import { Home, MainPage, ErrorPage } from './pages';
+import { Home, MainPage, ErrorPage, SingleSpotPage } from './pages';
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
         <Route exact path='/main'>
           <MainPage />
         </Route>
+        <Route exact path='/main/:id' children={<SingleSpotPage />} />
         <Route path='*'>
           <ErrorPage />
         </Route>

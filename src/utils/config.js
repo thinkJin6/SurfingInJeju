@@ -8,6 +8,7 @@ const spots = [
     id: 0,
     lat: 33.244017,
     lng: 126.4084972,
+    location: 'Jeju Island',
     img:
       'https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3VyZnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
     img_main: 'https://www.instagram.com/p/CC5yyAth-aw/',
@@ -19,6 +20,7 @@ const spots = [
     id: 1,
     lat: 35.1586967,
     lng: 129.1516294,
+    location: 'Busan',
     img:
       'https://images.unsplash.com/photo-1502933691298-84fc14542831?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fHN1cmZ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
     info:
@@ -29,6 +31,7 @@ const spots = [
     id: 2,
     lat: 37.975033,
     lng: 128.7575397,
+    location: 'YangYang',
     img:
       'https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3VyZnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
     info:
@@ -40,6 +43,7 @@ const spots = [
     id: 3,
     lat: 36.7871185,
     lng: 126.1397788,
+    location: 'Taean-gun',
     img:
       'https://images.unsplash.com/photo-1515541324332-7dd0c37426e0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fHN1cmZ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
     info:
@@ -50,6 +54,7 @@ const spots = [
     id: 4,
     lat: 36.112975,
     lng: 129.4270403,
+    location: 'Pohang',
     img:
       'https://images.unsplash.com/photo-1513569143478-b38b2c0ef97f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8c3VyZnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
     info:
@@ -60,6 +65,7 @@ const spots = [
     id: 5,
     lat: 33.229595,
     lng: 126.2348083,
+    location: 'Jeju Island',
     img:
       'https://ec2-im-1.msw.ms/md/image.php?id=367434&type=PHOTOLAB&resize_type=STREAM_MEDIUM_SQUARE&fromS3',
     info:

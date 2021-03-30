@@ -11,7 +11,6 @@ const spots = [
     location: 'Jeju Island',
     img:
       'https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3VyZnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',
-    img_main: 'https://www.instagram.com/p/CC5yyAth-aw/',
     info:
       'Jungmun Beach (Jeju Island) is a beach and reef break. Summer offers the best conditions for surfing. Ideal winds are from the north. The best swell direction is from the south southwest. The beach breaks offer lefts and rights together with both left and right hand reef breaks offshore. Around low tide tide offers the best conditions for surfing. Unlikely to be too crowded, even when the surf is up. Hazards include - Rips / undertow - Rocks.Consistent clean waves (rideable swell with light / offshore winds) is during Summer and most often the month of June. Clean surfable waves are typically found 22% of the time in June while 43% of the time it tends to be blown out. For the remaining 35% of the time it is considered too small by most surfers but may still be OK for beginners and groms at times.',
   },
@@ -52,8 +51,8 @@ const spots = [
   {
     name: 'Sinhangman',
     id: 4,
-    lat: 36.112975,
-    lng: 129.4270403,
+    lat: 36.1117544,
+    lng: 129.4127111,
     location: 'Pohang',
     img:
       'https://images.unsplash.com/photo-1513569143478-b38b2c0ef97f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8c3VyZnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60',

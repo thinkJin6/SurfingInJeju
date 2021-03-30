@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSpotContext } from '../contexts/spot_context';
 
-const ImageContainer = () => {
+const SpotImageContainer = () => {
   const { spots_data, pathId } = useSpotContext();
-  console.log(pathId);
+
   return (
     <Wrapper>
       {spots_data.map((spot) => {
@@ -53,13 +53,13 @@ const Wrapper = styled.div`
     text-align: start;
 
     h1 {
-      font-size: 5rem;
+      font-size: 4.5rem;
       font-weight: 500;
       letter-spacing: 0.1rem;
     }
 
     h3 {
-      font-size: 1.7rem;
+      font-size: 1.3rem;
       font-weight: 300;
       text-transform: uppercase;
       color: var(--color-grey-light-3);
@@ -69,4 +69,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ImageContainer;
+export default SpotImageContainer;

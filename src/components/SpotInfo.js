@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SpotDescription from './SpotDescription';
-import ImageContainer from './ImageContainer';
+import SpotImageContainer from './SpotImageContainer';
 
 const SpotInfo = () => {
   return (
     <Wrapper>
-      <ImageContainer />
+      <SpotImageContainer />
       <SpotDescription />
     </Wrapper>
   );
@@ -16,6 +16,8 @@ const SpotInfo = () => {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
 `;
 
 export default SpotInfo;

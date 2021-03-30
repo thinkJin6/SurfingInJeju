@@ -42,7 +42,7 @@ const SpotLists = () => {
               <article>
                 <h3>{name}</h3>
                 <h5>{formatWaveHeight(waveHeight)}</h5>
-                <Stars prop={{ waveHeight, windSpeedMile }} />
+                <Stars prop={{ waveHeight, windSpeedMile, small: true }} />
               </article>
             </Link>
           );
@@ -54,9 +54,9 @@ const SpotLists = () => {
 
 const Wrapper = styled.section`
   background-color: var(--color-grey-light-2);
-  padding: 3rem;
+  padding: 5rem;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   ul {
     list-style: none;

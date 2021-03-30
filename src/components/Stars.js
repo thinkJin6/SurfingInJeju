@@ -4,7 +4,8 @@ import { BsStarFill } from 'react-icons/bs';
 import { getStarsRating, getStarsLength } from '../utils/helpers';
 
 const Stars = ({ prop }) => {
-  const { waveHeight, windSpeedMile } = prop;
+  const { waveHeight, windSpeedMile, small } = prop;
+
   const waveRating = getStarsRating(waveHeight, windSpeedMile);
   const starsLength = getStarsLength(waveRating);
 
@@ -14,7 +15,10 @@ const Stars = ({ prop }) => {
     const starHalf = starIndex - 0.5;
 
     return (
-      <span key={index}>
+      <span
+        key={index}
+        style={small ? { fontSize: '1.25rem' } : { fontSize: '1.8rem' }}
+      >
         {
           // prettier-ignore
           waveRating >= starIndex ? <BsStarFill /> : waveRating >= starHalf ? <BsStarFill className='star-half'/> : <BsStarFill className='star-empty'/>
@@ -23,24 +27,36 @@ const Stars = ({ prop }) => {
     );
   });
 
+  // If small is true return small stars (SpotList)
+  // Else(big) return big stars (SingleTitle)
   return (
-    <Wrapper>
+    <Wrapper
+      style={
+        small
+          ? {
+              alignSelf: 'start',
+              gridColumnStart: 'main',
+              gridColumnEnd: 'main',
+            }
+          : {
+              gridColumnStart: 'stars-start',
+              gridColumnEnd: 'stars-end',
+              marginTop: '3px',
+            }
+      }
+    >
       <div className='stars'>{tempStars}</div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  align-self: start;
-  grid-column-start: main;
-  grid-column-end: main;
-
   display: flex;
 
   span {
     color: var(--color-primary-dark);
-    font-size: 1.25rem;
     margin-right: 0.3rem;
+    font-size: 1.25rem;
   }
 
   .star-half {

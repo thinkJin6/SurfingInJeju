@@ -1,3 +1,12 @@
+import {
+  FaCloud,
+  FaSun,
+  FaRegSnowflake,
+  FaCloudRain,
+  FaMoon,
+  FaPooStorm,
+} from 'react-icons/fa';
+
 export const getCurrentHour = () => {
   return Math.floor(new Date().getHours() / 3);
 };
@@ -6,6 +15,7 @@ export const formatWaveHeight = (waveHeight) => {
   const minHeight = Math.floor(waveHeight);
   const maxHeight = Math.ceil(waveHeight);
 
+  if (minHeight < 0 || maxHeight < 0) return 'Error';
   // if wave height is not decimal return wave height
   // e.g. wave height(3) return 3ft
   if (minHeight === maxHeight) return `${minHeight}ft`;
@@ -32,4 +42,47 @@ export const getStarsLength = (waveRating) => {
   if (waveRating === 5) return waveRating;
   if (waveRating > 4) return Math.floor(waveRating + 1);
   if (waveRating < 4) return Math.floor(waveRating + 2);
+};
+
+export const formatWindDescription = (windSpeedMile, windDirection) => {
+  if (windSpeedMile <= 5) {
+    return `${windSpeedMile}mph breeze, ${windDirection}`;
+  }
+  if (windSpeedMile <= 10) {
+    return `${windSpeedMile}mph gentle, ${windDirection}`;
+  }
+  if (windSpeedMile <= 17) {
+    return `${windSpeedMile}mph little strong, ${windDirection}`;
+  }
+  if (windSpeedMile <= 23) {
+    return `${windSpeedMile}mph strong messy, ${windDirection}`;
+  }
+  if (windSpeedMile <= 30) {
+    return `${windSpeedMile}mph gale, ${windDirection}`;
+  }
+
+  return `${windSpeedMile}mph typhoon, ${windDirection}`;
+};
+
+export const convertToWeatherIcon = (weatherDesc) => {
+  const weather = weatherDesc.toLowerCase();
+
+  if (weather.includes('cloud')) return <FaCloud />;
+  if (weather.includes('fog')) return <FaCloud />;
+  if (weather.includes('overcast')) return <FaCloud />;
+
+  if (weather.includes('sun')) return <FaSun />;
+  if (weather.includes('clear')) return <FaSun />;
+
+  if (weather.includes('drizzle')) return <FaCloudRain />;
+  if (weather.includes('rain')) return <FaCloudRain />;
+  if (weather.includes('mist')) return <FaCloudRain />;
+
+  if (weather.includes('snow')) return <FaRegSnowflake />;
+  if (weather.includes('sleet')) return <FaRegSnowflake />;
+  if (weather.includes('blizzard')) return <FaRegSnowflake />;
+
+  if (weather.includes('thunder')) return <FaPooStorm />;
+
+  return <FaMoon />;
 };

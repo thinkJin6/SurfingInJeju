@@ -28,7 +28,7 @@ const Wrapper = styled.main`
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.2fr 2fr;
   color: black;
 `;
 

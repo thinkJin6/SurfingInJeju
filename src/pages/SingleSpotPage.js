@@ -15,6 +15,8 @@ const SingleSpotPage = () => {
     setPathId,
   } = useSpotContext();
 
+  // Set last one letter of location to pathID
+  // e.g location(main/2) => 2 = pathId
   useEffect(() => {
     const locationId = +window.location.pathname.slice(-1);
 

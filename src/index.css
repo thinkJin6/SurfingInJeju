@@ -69,6 +69,7 @@ body {
   font-size: 1.6rem;
   cursor: pointer;
   border: none;
+  transition: all 0.4s;
 }
 
 .btn:hover {

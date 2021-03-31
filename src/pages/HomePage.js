@@ -2,8 +2,6 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import img from '../assets/surf-home.jpg';
-
 const HomePage = () => {
   return (
     <Wrapper className='main'>

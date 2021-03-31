@@ -12,7 +12,7 @@ const SpotDescription = () => {
   return (
     <div>
       {spots_data.map((spot) => {
-        const { id, data, info } = spot;
+        const { id, data, info, lat, lng } = spot;
         // Guard clause
         if (id !== pathId) return;
         console.log(data[0].hourly[currentHour]);
@@ -40,7 +40,7 @@ const SpotDescription = () => {
               }}
             />
             <SingleSpotArticle prop={{ info }} />
-            <SingleSpotMap />
+            <SingleSpotMap prop={{ lat, lng }} />
           </Wrapper>
         );
       })}

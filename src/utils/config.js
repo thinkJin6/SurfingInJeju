@@ -1,8 +1,13 @@
-const baseUrl = `http://api.worldweatheronline.com/premium/v1/marine.ashx?key=${process.env.REACT_APP_API_KEY}&format=json&tide=yes&q=`;
+export const BASE_URL = `http://api.worldweatheronline.com/premium/v1/marine.ashx?key=${process.env.REACT_APP_API_KEY}&format=json&tide=yes&q=`;
 
-const errorMsg = 'Failed to fetch API, please check your api again';
+export const ERROR_MSG = 'Failed to fetch API, please check your api again';
 
-const spots = [
+export const MAP_ZOOM_LEVEL = 5;
+export const SCROLL_WHEEL_ZOOM = true;
+export const TILE_LAYER_STYLE =
+  'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
+
+export const SPOTS_LOCAL_DATA = [
   {
     name: 'Jungmun',
     id: 0,
@@ -71,5 +76,3 @@ const spots = [
       'Moseulpo is a reef break point. Normally Moseulpo is not the place for surfing but when typhoon swell comes up, You can see the Best waves in South Korea. Mid tide offers the best conditions for surfing. When Epic swell comes it reminds waves of Bali. Ideal winds are from the north. The best swell direction is from the south southwest. The reef break offers lefts hand. Respect local surfers and ask them about the spot before jump into the water. Hazards include - Rips / undertow - Rocks.',
   },
 ];
-
-export { baseUrl, spots, errorMsg };

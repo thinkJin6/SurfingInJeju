@@ -26,16 +26,16 @@ export const formatWaveHeight = (waveHeight) => {
 // Get wave rating by wind and wave swell height
 export const getStarsRating = (waveHeight, windSpeedMile) => {
   const goodWind = windSpeedMile <= 10;
-  const microWave = waveHeight <= 3;
-  const smallWave = waveHeight > 3 && waveHeight < 4;
-  const regularWave = waveHeight > 4 && waveHeight < 5;
+  const microWave = waveHeight <= 2;
+  const smallWave = waveHeight > 2 && waveHeight <= 3;
+  const regularWave = waveHeight > 3 && waveHeight <= 5;
   const goodWave = waveHeight > 5;
 
-  if (microWave && !goodWind) return 1.5;
-  if ((microWave && goodWind) || (smallWave && !goodWind)) return 2.5;
-  if ((smallWave && goodWind) || (regularWave && !goodWind)) return 3.5;
-  if ((regularWave && goodWind) || (goodWave && !goodWind)) return 4.5;
-  if (goodWave && goodWind) return 5;
+  if (microWave && !goodWind) return 0.5;
+  if ((microWave && goodWind) || (smallWave && !goodWind)) return 1.5;
+  if ((smallWave && goodWind) || (regularWave && !goodWind)) return 2.5;
+  if ((regularWave && goodWind) || (goodWave && !goodWind)) return 3.5;
+  if (goodWave && goodWind) return 4.5;
 };
 
 export const getStarsLength = (waveRating) => {

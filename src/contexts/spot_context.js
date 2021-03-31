@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useReducer } from 'react';
 import reducer from '../reducers/spot_reducer';
 import axios from 'axios';
 
-import { baseUrl, spots, errorMsg } from '../utils/config';
+import { BASE_URL, SPOTS_LOCAL_DATA, ERROR_MSG } from '../utils/config';
 import { getCurrentHour } from '../utils/helpers';
 import {
   GET_SPOTS_BEJIN,
@@ -15,7 +15,7 @@ import {
 const initialState = {
   isLoading: true,
   isError: false,
-  spots_info: [...spots],
+  spots_info: [...SPOTS_LOCAL_DATA],
   spots_data: [],
   pathId: 0,
   currentHour: getCurrentHour(),
@@ -33,7 +33,7 @@ export const SpotProvider = ({ children }) => {
       const res = await axios(url);
       const data = res.data.data.weather;
 
-      if (!data) throw new Error(errorMsg);
+      if (!data) throw new Error(ERROR_MSG);
 
       dispatch({
         type: GET_SPOTS_SUCCESS,
@@ -58,7 +58,7 @@ export const SpotProvider = ({ children }) => {
     state.spots_info.map((spot) => {
       const { lat, lng } = spot;
 
-      fetchSpotsData(`${baseUrl}${lat},${lng}`, spot);
+      fetchSpotsData(`${BASE_URL}${lat},${lng}`, spot);
     });
   }, []);
 

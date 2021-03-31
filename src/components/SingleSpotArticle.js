@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const SingleSpotArticle = ({ prop }) => {
   const { info } = prop;
@@ -10,12 +11,18 @@ const SingleSpotArticle = ({ prop }) => {
       {isShowed ? (
         <div className='article'>
           <p>{info}</p>
-          <button onClick={() => setIsShowed(false)}>show less</button>
+          <button onClick={() => setIsShowed(false)}>
+            show less&nbsp;
+            <FaChevronUp />
+          </button>
         </div>
       ) : (
         <div className='article'>
           <p>{`${info.slice(0, 150)}...`}</p>
-          <button onClick={() => setIsShowed(true)}>show more</button>
+          <button onClick={() => setIsShowed(true)}>
+            show more&nbsp;
+            <FaChevronDown />
+          </button>
         </div>
       )}
       <button className='btn btn--blue btn--animated'>view forecast</button>
@@ -42,6 +49,9 @@ const Wrapper = styled.article`
       background-color: var(--color-white);
       color: var(--color-primary-dark);
       text-transform: uppercase;
+
+      display: flex;
+      align-items: center;
 
       position: absolute;
       bottom: 0;

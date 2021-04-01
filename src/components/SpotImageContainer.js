@@ -10,7 +10,7 @@ const SpotImageContainer = () => {
       {spots_data.map((spot) => {
         const { img, name, location, id } = spot;
         // Guard clause
-        if (pathId !== id) return;
+        if (pathId !== id) return null;
 
         return (
           <div className='container' key={id}>

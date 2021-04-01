@@ -4,6 +4,9 @@ import {
   GET_SPOTS_ERROR,
   SORT_SPOTS,
   SET_PATH_ID,
+  CLOSE_MODAL,
+  OPEN_MODAL,
+  SET_SINGLE_SPOT,
 } from '../action';
 
 const spot_reducuer = (state, action) => {
@@ -39,6 +42,15 @@ const spot_reducuer = (state, action) => {
     // Set path id to give an animation effect on list and to get img & info
     case SET_PATH_ID:
       return { ...state, pathId: action.payload.id };
+
+    case CLOSE_MODAL:
+      return { ...state, isModalOpen: false };
+
+    case OPEN_MODAL:
+      return { ...state, isModalOpen: true };
+    // Set single spot to send data to Forecast component
+    case SET_SINGLE_SPOT:
+      return { ...state, single_spot: action.payload.spot };
 
     // Throw error if types aren't matched
     default:

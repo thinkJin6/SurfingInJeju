@@ -12,10 +12,9 @@ const SpotDescription = () => {
   return (
     <div>
       {spots_data.map((spot) => {
-        const { id, data, info, lat, lng } = spot;
+        const { id, data, lat, lng } = spot;
         // Guard clause
-        if (id !== pathId) return;
-        console.log(data[0].hourly[currentHour]);
+        if (id !== pathId) return null;
 
         const {
           swellHeight_ft: waveHeight,
@@ -23,6 +22,7 @@ const SpotDescription = () => {
           winddir16Point: windDirection,
           winddirDegree: windDirDegree,
           tempC,
+          waterTemp_C,
           weatherDesc,
         } = data[0].hourly[currentHour];
 
@@ -35,11 +35,12 @@ const SpotDescription = () => {
               prop={{
                 windSpeedMile,
                 tempC,
+                waterTemp_C,
                 weatherDesc,
                 windDirDegree,
               }}
             />
-            <SingleSpotArticle prop={{ info }} />
+            <SingleSpotArticle spot={spot} />
             <SingleSpotMap prop={{ lat, lng }} />
           </Wrapper>
         );
@@ -50,7 +51,7 @@ const SpotDescription = () => {
 
 const Wrapper = styled.div`
   height: 55%;
-  padding: 4rem 6rem;
+  padding: 4rem;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);

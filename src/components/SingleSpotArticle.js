@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-const SingleSpotArticle = ({ prop }) => {
-  const { info } = prop;
+import { useSpotContext } from '../contexts/spot_context';
+
+const SingleSpotArticle = ({ spot }) => {
+  const { info } = spot;
   const [isShowed, setIsShowed] = useState(false);
+  const { openModal, setSingleSpot } = useSpotContext();
 
   return (
     <Wrapper>
@@ -25,7 +28,15 @@ const SingleSpotArticle = ({ prop }) => {
           </button>
         </div>
       )}
-      <button className='btn btn--blue btn--animated'>view forecast</button>
+      <button
+        className='btn btn--blue btn--animated'
+        onClick={() => {
+          openModal();
+          setSingleSpot(spot);
+        }}
+      >
+        view forecast
+      </button>
     </Wrapper>
   );
 };

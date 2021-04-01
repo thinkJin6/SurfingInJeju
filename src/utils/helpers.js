@@ -11,14 +11,24 @@ export const getCurrentHour = () => {
   return Math.floor(new Date().getHours() / 3);
 };
 
+export const getEveryThreeHours = (index) => {
+  if (index <= 3) return `0${index * 3}AM`; // e.g. 03AM
+  if (index === 4) return `${index * 3}PM`; // e.g. 12PM
+  if (index >= 5) return `0${(index - 4) * 3}PM`; // e.g. 06PM
+};
+
 export const formatWaveHeight = (waveHeight) => {
   const minHeight = Math.floor(waveHeight);
   const maxHeight = Math.ceil(waveHeight);
 
   if (minHeight < 0 || maxHeight < 0) return 'Error';
+
   // if wave height is not decimal return wave height
   // e.g. wave height(3) return 3ft
   if (minHeight === maxHeight) return `${minHeight}ft`;
+
+  if (waveHeight <= 0.5) return 'Flat';
+
   // e.g. wave height(3.5) return 3-4ft
   return `${minHeight}-${maxHeight}ft`;
 };

@@ -1,9 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components';
-
-import { Navbar } from './components';
-import { Home, MainPage, ErrorPage, SingleSpotPage } from './pages';
+import {
+  Home,
+  MainPage,
+  ErrorPage,
+  SingleSpotPage,
+  OverlayPage,
+} from './pages';
 
 const App = () => {
   return (
@@ -14,8 +17,18 @@ const App = () => {
         </Route>
         <Route exact path='/main'>
           <MainPage />
+          <OverlayPage />
         </Route>
-        <Route exact path='/main/:id' children={<SingleSpotPage />} />
+        <Route
+          exact
+          path='/main/:id'
+          children={
+            <div>
+              <SingleSpotPage />
+              <OverlayPage />
+            </div>
+          }
+        />
         <Route path='*'>
           <ErrorPage />
         </Route>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactDOMServer from 'react-dom/server';
 import { BiCurrentLocation } from 'react-icons/bi';
-import { MapContainer, TileLayer, Marker, CircleMarker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import * as L from 'leaflet';
 
 import {

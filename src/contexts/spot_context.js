@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from 'react';
+import React, { useEffect, useContext, useReducer, useCallback } from 'react';
 import reducer from '../reducers/spot_reducer';
 import axios from 'axios';
 
@@ -10,13 +10,18 @@ import {
   GET_SPOTS_ERROR,
   SORT_SPOTS,
   SET_PATH_ID,
+  CLOSE_MODAL,
+  OPEN_MODAL,
+  SET_SINGLE_SPOT,
 } from '../action';
 
 const initialState = {
   isLoading: true,
   isError: false,
+  isModalOpen: false,
   spots_info: [...SPOTS_LOCAL_DATA],
   spots_data: [],
+  single_spot: null,
   pathId: 0,
   currentHour: getCurrentHour(),
 };
@@ -26,7 +31,7 @@ const SpotContext = React.createContext();
 export const SpotProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchSpotsData = async (url, spot) => {
+  const fetchSpotsData = useCallback(async (url, spot) => {
     try {
       dispatch({ type: GET_SPOTS_BEJIN });
 
@@ -43,14 +48,26 @@ export const SpotProvider = ({ children }) => {
       dispatch({ type: GET_SPOTS_ERROR });
       console.error(err);
     }
-  };
+  }, []);
 
-  const sortSpotsById = () => {
+  const sortSpotsById = useCallback(() => {
     dispatch({ type: SORT_SPOTS, payload: { spots: state.spots_data } });
+  }, [state.spots_data]);
+
+  const setPathId = useCallback((id) => {
+    dispatch({ type: SET_PATH_ID, payload: { id } });
+  }, []);
+
+  const closeModal = () => {
+    dispatch({ type: CLOSE_MODAL });
   };
 
-  const setPathId = (id) => {
-    dispatch({ type: SET_PATH_ID, payload: { id } });
+  const openModal = () => {
+    dispatch({ type: OPEN_MODAL });
+  };
+
+  const setSingleSpot = (spot) => {
+    dispatch({ type: SET_SINGLE_SPOT, payload: { spot } });
   };
 
   // Get base datas for SpotLists component
@@ -59,11 +76,22 @@ export const SpotProvider = ({ children }) => {
       const { lat, lng } = spot;
 
       fetchSpotsData(`${BASE_URL}${lat},${lng}`, spot);
+
+      return null;
     });
-  }, []);
+  }, [fetchSpotsData, state.spots_info]);
 
   return (
-    <SpotContext.Provider value={{ ...state, sortSpotsById, setPathId }}>
+    <SpotContext.Provider
+      value={{
+        ...state,
+        sortSpotsById,
+        setPathId,
+        closeModal,
+        openModal,
+        setSingleSpot,
+      }}
+    >
       {children}
     </SpotContext.Provider>
   );

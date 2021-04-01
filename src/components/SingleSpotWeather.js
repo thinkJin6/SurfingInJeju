@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ImArrowUp } from 'react-icons/im';
+import { FaLocationArrow, FaTemperatureLow } from 'react-icons/fa';
 import { convertToWeatherIcon } from '../utils/helpers';
+import { ADJUSTED_DEGREE } from '../utils/config';
 
 const SingleSpotWeather = ({ prop }) => {
-  const { windSpeedMile, tempC, windDirDegree, weatherDesc } = prop;
+  const {
+    windSpeedMile,
+    tempC,
+    windDirDegree,
+    weatherDesc,
+    waterTemp_C,
+  } = prop;
 
   return (
     <Wrapper>
@@ -12,9 +19,10 @@ const SingleSpotWeather = ({ prop }) => {
         <h2>{windSpeedMile}</h2>
         <h3>mph</h3>
         <span>
-          <ImArrowUp
+          <FaLocationArrow
             style={{
-              transform: `rotate(${windDirDegree}deg)`,
+              // adjust
+              transform: `rotate(${+windDirDegree + ADJUSTED_DEGREE}deg)`,
             }}
           />
         </span>
@@ -24,11 +32,19 @@ const SingleSpotWeather = ({ prop }) => {
         <h3 className='celsius'>&#8451;</h3>
         <span>{convertToWeatherIcon(weatherDesc[0].value)}</span>
       </div>
+      <div className='margin'>
+        <h2 className='water-temp'>{waterTemp_C}</h2>
+        <h3 className='celsius'>&#8451;</h3>
+        <span>
+          <FaTemperatureLow />
+        </span>
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.article`
+  padding-left: 3rem;
   align-self: center;
   justify-self: center;
 
@@ -41,12 +57,12 @@ const Wrapper = styled.article`
     line-height: 1;
   }
 
-  .margin {
-    margin-left: 3rem;
+  h2 {
+    font-size: 2rem;
   }
 
-  h2 {
-    font-size: 2.3rem;
+  .margin {
+    margin-left: 2rem;
   }
 
   h3 {

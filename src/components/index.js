@@ -3,7 +3,6 @@ import SpotInfo from './SpotInfo';
 import SpotLists from './SpotLists';
 import Loading from './Loading';
 import Stars from './Stars';
-import SpotImageContainer from './SpotImageContainer';
-import SpotDescription from './SpotDescription';
+import Forecast from './Forecast';
 
-export { Navbar, SpotInfo, SpotLists, Loading, Stars };
+export { Navbar, SpotInfo, SpotLists, Loading, Stars, Forecast };

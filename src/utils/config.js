@@ -2,6 +2,9 @@ export const BASE_URL = `http://api.worldweatheronline.com/premium/v1/marine.ash
 
 export const ERROR_MSG = 'Failed to fetch API, please check your api again';
 
+// For Adjusting default degree, icon default dir degree is 225 So 135 + 225 = 360;
+export const ADJUSTED_DEGREE = 135;
+
 export const MAP_ZOOM_LEVEL = 5;
 export const SCROLL_WHEEL_ZOOM = true;
 export const TILE_LAYER_STYLE =

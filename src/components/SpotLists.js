@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const SpotLists = () => {
 
   useEffect(() => {
     sortSpotsById();
-  }, []);
+  }, [sortSpotsById]);
 
   return (
     <Wrapper>
@@ -84,6 +84,10 @@ const Wrapper = styled.section`
 
   .list:hover {
     transform: translateY(-3px) scale(1.05);
+  }
+
+  .list:focus {
+    outline: none;
   }
 
   .list:last-child {

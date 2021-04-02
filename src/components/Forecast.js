@@ -7,16 +7,15 @@ import ForecastMain from './ForecastMain';
 import moment from 'moment';
 
 const Forecast = () => {
-  const { closeModal, single_spot } = useSpotContext();
+  const { single_spot } = useSpotContext();
 
-  console.log(single_spot);
-  const { id, data } = single_spot;
+  const { data } = single_spot;
 
   return (
     <Wrapper>
       {data.map((dayData, index) => {
         // Getting next 7 days, e.g. Wednesday, March 31, 2021 + index days
-        const formatDate = moment(dayData.date).format('dddd, MMMM D, YYYY');
+        const formatDate = moment(dayData.date).format('dddd, MMM D, YYYY');
         const { astronomy } = dayData;
 
         return (

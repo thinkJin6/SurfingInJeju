@@ -1,36 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { getEveryThreeHours } from '../utils/helpers';
 import ForecastWind from './ForecastWind';
 import ForecastWeather from './ForecastWeather';
 import ForecastWave from './ForecastWave';
 import ForecastTide from './ForecastTide';
+import { generateNewTime, formatAndFindSameTime } from '../utils/helpers';
 
 const ForecastMain = ({ dayData }) => {
   // Every 3 hours
-  const { hourly } = dayData;
-  //   console.log(dayData);
+  const { hourly, tides } = dayData;
+  const tideDay = tides[0].tide_data;
 
   return (
     <Wrapper>
       {hourly.map((eachTime, index) => {
-        console.log(eachTime);
         const {
           winddirDegree: windDirDegree,
           windspeedMiles: windSpeedMiles,
+          swellPeriod_secs: swellPeriod,
+          swellHeight_ft: swellHeight,
+          swellDir,
           weatherDesc,
           tempC,
+          time,
         } = eachTime;
 
+        const tide = tideDay.find((hour) => {
+          const { tideTime } = hour;
+
+          return formatAndFindSameTime(tideTime, time);
+        });
+
         return (
-          <div key={index} className='data-container'>
-            {/* Time */}
-            <span className='hours'>{getEveryThreeHours(index)}</span>
+          <div
+            key={index}
+            className={`data-container ${tide && 'data-container-tide'}`}
+          >
+            <span className='hours'>{generateNewTime(time)}</span>
             <ForecastWind props={{ windDirDegree, windSpeedMiles }} />
             <ForecastWeather props={{ weatherDesc, tempC }} />
-            <div>icon&waves</div>
-            <div>icon&tides</div>
+            <ForecastWave props={{ swellPeriod, swellDir, swellHeight }} />
+            <ForecastTide tide={tide} />
           </div>
         );
       })}
@@ -45,9 +56,12 @@ const Wrapper = styled.header`
     justify-items: center;
     align-items: center;
     font-size: 1.5rem;
-    padding: 1rem 0;
-    /* padding-left: 3rem; */
+    padding: 0.8rem 0;
     border-bottom: 1px solid var(--color-grey-light-4);
+  }
+
+  .data-container-tide {
+    padding: 0.3rem 0;
   }
 
   .hours {
@@ -58,7 +72,7 @@ const Wrapper = styled.header`
     margin-right: 1rem;
 
     svg {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
   }
 `;

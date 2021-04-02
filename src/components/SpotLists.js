@@ -124,6 +124,7 @@ const Wrapper = styled.section`
     h5 {
       justify-self: end;
       font-size: 1.5rem;
+      letter-spacing: 1px;
     }
   }
 `;

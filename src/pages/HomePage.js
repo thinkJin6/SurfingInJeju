@@ -6,8 +6,8 @@ const HomePage = () => {
   return (
     <Wrapper className='main'>
       <h1>
-        <span className='heading-main'>JeJu Island</span>
-        <span className='heading-sub'>is where life happens</span>
+        <span className='heading-main'>Surfing in Korea</span>
+        <span className='heading-sub'>is not as bad as you think</span>
       </h1>
       <Link className='btn btn--white btn--animated' to='/main'>
         Explore surf spots
@@ -72,15 +72,15 @@ const Wrapper = styled.main`
       display: block;
       font-size: 6rem;
       font-weight: 400;
-      letter-spacing: 3.5rem;
+      letter-spacing: 2.2rem;
       animation: ${moveInLeft} 1s ease-out;
     }
 
     .heading-sub {
       display: block;
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1.75rem;
+      font-size: 2.25rem;
+      font-weight: 500;
+      letter-spacing: 1.5rem;
       text-transform: uppercase;
       animation: ${moveInRight} 1s ease-out;
     }

@@ -52,9 +52,9 @@ const Wrapper = styled.header`
   }
 
   .date {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     letter-spacing: 1px;
   }
 

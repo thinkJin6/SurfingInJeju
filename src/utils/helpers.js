@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   FaCloud,
   FaSun,
@@ -11,10 +12,41 @@ export const getCurrentHour = () => {
   return Math.floor(new Date().getHours() / 3);
 };
 
-export const getEveryThreeHours = (index) => {
-  if (index <= 3) return `0${index * 3}AM`; // e.g. 03AM
-  if (index === 4) return `${index * 3}PM`; // e.g. 12PM
-  if (index >= 5) return `0${(index - 4) * 3}PM`; // e.g. 06PM
+// Change provided time to new time for using moment js
+// e.g. provided time = 0 || 300, 600... || 1200, 1500... to 00, 03, 12
+export const generateNewTime = (time) => {
+  let newTime;
+
+  if (time.length === 1) newTime = `00`;
+  if (time.length === 3) newTime = `0${time.slice(0, 1)}`;
+  if (time.length === 4) newTime = `${time.slice(0, 2)}`;
+
+  // return is 03AM, 12PM ...
+  return moment(newTime, 'hh').format('hh A').split(' ').join('');
+};
+
+// e.g. input = 6:12 PM , return = 18:12
+export const get24Hours = (time) => {
+  return moment(time, 'hh:mm A').format('HH:mm');
+};
+
+// Format inputs to make same format of time and find same value
+// To render forecast components to correct position of every 3 hour
+export const formatAndFindSameTime = (tideTime, time) => {
+  // e.g. Input tideTime = "6:26 PM";
+  // Changing input time to "18"
+  const tempTime = moment(tideTime, 'hh:mm A').format('HHmm').slice(0, 2);
+
+  // ["1700", "1800", "1900"] Rendering like this to find closest hours(divided by 3) of 24 hours
+  const tempTimes = [
+    `${+tempTime - 1}00`,
+    `${tempTime}00`,
+    `${+tempTime + 1}00`,
+  ];
+
+  return tempTimes.find(
+    (tempT) => generateNewTime(tempT) === generateNewTime(time)
+  );
 };
 
 export const formatWaveHeight = (waveHeight) => {

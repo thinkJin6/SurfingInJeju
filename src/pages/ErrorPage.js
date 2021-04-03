@@ -50,6 +50,10 @@ const Wrapper = styled.main`
     font-size: 3rem;
     margin-bottom: 3rem;
   }
+
+  @media only screen and (max-width: 75em) {
+    height: 100vh;
+  }
 `;
 
 export default ErrorPage;

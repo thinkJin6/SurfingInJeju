@@ -50,11 +50,18 @@ const Wrapper = styled.article`
   .leaflet-container {
     height: 100%;
     width: 100%;
+    border-radius: 3px;
   }
 
   .marker-circle {
     color: var(--color-primary-dark);
     font-size: 2.2rem;
+  }
+
+  // 700px
+  @media only screen and (max-width: 43.75em) {
+    height: 20rem;
+    padding-left: 0;
   }
 `;
 

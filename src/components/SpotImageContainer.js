@@ -67,6 +67,13 @@ const Wrapper = styled.div`
       margin-left: 0.2rem;
     }
   }
+
+  /* 1200px */
+  @media only screen and (max-width: 75em) {
+    img {
+      border-radius: 0;
+    }
+  }
 `;
 
 export default SpotImageContainer;

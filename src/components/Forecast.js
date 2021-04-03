@@ -15,7 +15,7 @@ const Forecast = () => {
     <Wrapper>
       {data.map((dayData, index) => {
         // Getting next 7 days, e.g. Wednesday, March 31, 2021 + index days
-        const formatDate = moment(dayData.date).format('dddd, MMM D, YYYY');
+        const formatDate = moment(dayData.date).format('dddd, MMM D');
         const { astronomy } = dayData;
 
         return (

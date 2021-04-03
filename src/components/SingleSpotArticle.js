@@ -47,8 +47,6 @@ const Wrapper = styled.article`
   align-items: flex-start;
 
   .article {
-    position: relative;
-
     p {
       color: var(--color-grey-dark-1);
       font-size: 1.5rem;
@@ -57,17 +55,28 @@ const Wrapper = styled.article`
     button {
       border: none;
       cursor: pointer;
-      background-color: var(--color-white);
+      background-color: transparent;
       color: var(--color-primary-dark);
       text-transform: uppercase;
 
       display: flex;
       align-items: center;
+      font-size: 1.3rem;
+    }
 
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      transform: translate(-50%, -50%);
+    button:focus {
+      outline: none;
+    }
+  }
+
+  // 700px
+  @media only screen and (max-width: 43.75em) {
+    align-items: center;
+
+    .article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 `;

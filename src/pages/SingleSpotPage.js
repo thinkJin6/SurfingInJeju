@@ -13,18 +13,20 @@ const SingleSpotPage = () => {
     spots_data,
     spots_info,
     setPathId,
+    pathId,
   } = useSpotContext();
 
   // Set last one letter of location to pathID
   // e.g location(main/2) => 2 = pathId
-  useEffect(() => {
-    const locationId = +window.location.pathname.slice(-1);
+  const locationId = +window.location.pathname.slice(-1);
 
+  useEffect(() => {
     setPathId(locationId);
   }, [setPathId]);
 
   // Return loading till get All datas
   if (isLoading || spots_data.length !== spots_info.length) return <Loading />;
+  if (pathId !== locationId) return <ErrorPage />;
   if (isError) return <ErrorPage />;
 
   return (
@@ -40,11 +42,27 @@ const Wrapper = styled.main`
   background-color: var(--color-white);
   border-radius: 0.6rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  /* overflow-y: scroll; */
 
   display: grid;
   grid-template-columns: 1.2fr 2fr;
   color: black;
+
+  // 1200px
+  @media only screen and (max-width: 75em) {
+    height: 100vh;
+    background-color: var(--color-grey-light-2);
+  }
+
+  /* 900px */
+  @media only screen and (max-width: 56.25em) {
+    height: auto;
+  }
+
+  /* 650px */
+  @media only screen and (max-width: 40.625em) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export default SingleSpotPage;

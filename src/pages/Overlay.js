@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useSpotContext } from '../contexts/spot_context';
 import { Forecast } from '../components';
 
-const OverlayPage = () => {
+const Overlay = () => {
   const {
     isModalOpen,
     closeModal,
@@ -60,6 +60,24 @@ const Wrapper = styled.div`
     visibility: hidden;
     opacity: 0;
   }
+
+  /* 900px */
+  @media only screen and (max-width: 56.25em) {
+    .modal {
+      /* width: 40rem; */
+      height: 65rem;
+      margin-top: 0rem;
+    }
+  }
+
+  //600px
+  @media only screen and (max-width: 40.625em) {
+    .modal {
+      width: 40rem;
+      height: 60rem;
+      margin-top: 20rem;
+    }
+  }
 `;
 
-export default OverlayPage;
+export default Overlay;

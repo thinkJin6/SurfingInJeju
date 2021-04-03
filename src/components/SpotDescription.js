@@ -57,6 +57,14 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr, 3fr;
   gap: 3rem;
+
+  // 700px
+  @media only screen and (max-width: 43.75em) {
+    padding: 3rem;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  }
 `;
 
 export default SpotDescription;

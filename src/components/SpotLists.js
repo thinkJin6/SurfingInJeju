@@ -127,6 +127,69 @@ const Wrapper = styled.section`
       letter-spacing: 1px;
     }
   }
+
+  // 1000px
+  @media only screen and (max-width: 62.5em) {
+    padding: 2rem;
+
+    .list:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+  // 700px
+  @media only screen and (max-width: 43.75em) {
+    padding: 1rem;
+
+    .list:last-child {
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* 650px */
+  @media only screen and (max-width: 40.625em) {
+    margin-bottom: 3rem;
+    overflow-x: hidden;
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2rem;
+    }
+  }
+
+  /* 450px */
+  @media only screen and (max-width: 28.125em) {
+    .list {
+      height: 8rem;
+    }
+
+    img {
+      width: 8rem;
+      height: 8rem;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    article {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      justify-items: center;
+      line-height: 1;
+
+      h3 {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        align-self: flex-end;
+      }
+
+      h5 {
+        grid-column: 1 / 1;
+        grid-row: 3 / 3;
+        justify-self: center;
+        align-self: flex-start;
+      }
+    }
+  }
 `;
 
 export default SpotLists;

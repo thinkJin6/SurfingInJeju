@@ -13,7 +13,7 @@ import {
   CLOSE_MODAL,
   OPEN_MODAL,
   SET_SINGLE_SPOT,
-} from '../action';
+} from '../utils/action';
 
 const initialState = {
   isLoading: true,

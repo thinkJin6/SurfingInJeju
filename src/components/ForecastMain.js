@@ -75,6 +75,13 @@ const Wrapper = styled.header`
       font-size: 2.2rem;
     }
   }
+
+  //600px
+  @media only screen and (max-width: 40.625em) {
+    .icon {
+      margin-right: 0.5rem;
+    }
+  }
 `;
 
 export default ForecastMain;

@@ -30,6 +30,24 @@ const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 1.2fr 2fr;
   color: black;
+
+  // 1200px
+  @media only screen and (max-width: 75em) {
+    height: 100vh;
+    background-color: var(--color-grey-light-2);
+    margin-bottom: 2rem;
+  }
+
+  /* 900px */
+  @media only screen and (max-width: 56.25em) {
+    height: auto;
+  }
+
+  /* 650px */
+  @media only screen and (max-width: 40.625em) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export default MainPage;

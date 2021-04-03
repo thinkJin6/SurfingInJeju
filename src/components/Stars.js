@@ -33,15 +33,9 @@ const Stars = ({ prop }) => {
     <Wrapper
       style={
         small
-          ? {
-              alignSelf: 'start',
-              gridColumnStart: 'main',
-              gridColumnEnd: 'main',
-            }
+          ? null
           : {
-              gridColumnStart: 'stars-start',
-              gridColumnEnd: 'stars-end',
-              marginTop: '3px',
+              alignSelf: 'center',
             }
       }
     >
@@ -51,7 +45,13 @@ const Stars = ({ prop }) => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
+  align-self: start;
+  grid-column-start: main;
+  grid-column-end: main;
+
+  .stars {
+    display: flex;
+  }
 
   span {
     color: var(--color-primary-dark);
@@ -65,6 +65,13 @@ const Wrapper = styled.div`
 
   .star-empty {
     color: var(--color-primary-light-3);
+  }
+
+  /* 450px */
+  @media only screen and (max-width: 28.125em) {
+    align-self: center;
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
   }
 `;
 

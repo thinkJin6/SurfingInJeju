@@ -41,9 +41,8 @@ const Wrapper = styled.div`
     align-items: start;
 
     span {
-      /* line-height: 1.6; */
       letter-spacing: 1px;
-      width: 3.5rem;
+      width: 3.65rem;
     }
 
     p {

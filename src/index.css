@@ -14,11 +14,13 @@
   --color-grey-light-2: #f5f5f5;
   --color-grey-light-3: #f1f1f1;
   --color-grey-light-4: #eee;
-  /* --color-grey-light-4: #dedede; */
+
   --color-grey-dark-1: #777;
 
   --color-sunrise-yellow: #ffdb00;
   --color-sunset-orange: #ff9a00;
+
+  --bp-micro: 31.25em; /*500px*/
 }
 
 *,
@@ -123,4 +125,21 @@ body {
   padding: 1.5rem 3rem;
   letter-spacing: 1px;
   margin-top: 3rem;
+}
+/* 1200px */
+@media only screen and (max-width: 75em) {
+  body {
+    padding: 0;
+  }
+
+  .main {
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+/* 900px */
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%; /* 1rem = 8px */
+  }
 }

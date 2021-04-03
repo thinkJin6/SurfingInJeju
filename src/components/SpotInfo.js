@@ -16,7 +16,7 @@ const SpotInfo = () => {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-
+  background-color: var(--color-white);
   overflow-y: auto;
 `;
 

@@ -1,12 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {
-  Home,
-  MainPage,
-  ErrorPage,
-  SingleSpotPage,
-  OverlayPage,
-} from './pages';
+import { Home, MainPage, ErrorPage, SingleSpotPage, Overlay } from './pages';
 
 const App = () => {
   return (
@@ -15,17 +9,17 @@ const App = () => {
         <Route exact path='/'>
           <Home />
         </Route>
-        <Route exact path='/main'>
+        {/* <Route exact path='/main'>
           <MainPage />
-          <OverlayPage />
-        </Route>
+          <Overlay />
+        </Route> */}
         <Route
           exact
           path='/main/:id'
           children={
             <div>
               <SingleSpotPage />
-              <OverlayPage />
+              <Overlay />
             </div>
           }
         />

@@ -22,7 +22,7 @@ const SingleSpotPage = () => {
 
   useEffect(() => {
     setPathId(locationId);
-  }, [setPathId]);
+  }, [setPathId, locationId]);
 
   // Return loading till get All datas
   if (isLoading || spots_data.length !== spots_info.length) return <Loading />;

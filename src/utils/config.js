@@ -1,4 +1,4 @@
-export const BASE_URL = `http://api.worldweatheronline.com/premium/v1/marine.ashx?key=${process.env.REACT_APP_API_KEY}&format=json&tide=yes&q=`;
+export const BASE_URL = `https://api.worldweatheronline.com/premium/v1/marine.ashx?key=${process.env.REACT_APP_API_KEY}&format=json&tide=yes&q=`;
 
 export const ERROR_MSG = 'Failed to fetch API, please check your api again';
 

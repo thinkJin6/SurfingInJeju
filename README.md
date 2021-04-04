@@ -3,9 +3,15 @@
 **Surfing in Korea** is a web application which gives informations and forecast of popular surf spots in Korea.
 
 ![picture](./src/assets/main.png)
-Check surf forecasts and get info of popular surf spots in Korea on [surfinginkorea](https://surfinginkorea.netlify.app/)!
+Check surf forecasts and get info of popular surf spots in Korea on [live demo](https://surfinginkorea.netlify.app/)!
 
-## Tools
+## Built with
+
+- [html](https://html.com/), [css](https://developer.mozilla.org/en-US/docs/Web/CSS), [javaScript](https://www.javascript.com/)
+- [React](https://reactjs.org/), [React Hooks](https://reactjs.org/docs/hooks-intro.html), [React Router](https://reactrouter.com/), [Styled Components](https://styled-components.com/)
+- [React leaftlet](https://react-leaflet.js.org/), [Axios](https://github.com/axios/axios), [Moment.js](https://momentjs.com/)
+- [React Icons](https://react-icons.github.io/react-icons/), [Dotenv](https://www.npmjs.com/package/dotenv), [Netlify](https://www.netlify.com/)
+- [World weather online](https://www.worldweatheronline.com/)
 
 ## Website content
 
@@ -37,7 +43,11 @@ npm start
 
 ## Publishing the website
 
-Surfing in Korea website is published automatically on the Netlify platform. Whenever changes are pushed to the master branch, the site is re-built and re-deployed, usually within about one minute.
+Surfing in Korea website is published automatically on the Netlify platform. Whenever changes are pushed to the main branch, the site is re-built and re-deployed, usually within about one minute.
+
+## Contact
+
+[thinkjin6@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRpdLlVtFTbpNJTVjslHngsBTsKJxLhjmswTCKkndRpCGnBxLcsLlbWQjTtXPBWwnHqJcMg)
 
 ## License
 

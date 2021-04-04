@@ -7,10 +7,10 @@ Check surf forecasts and get info of popular surf spots in Korea on [live demo](
 
 ## Built with
 
-- [html](https://html.com/), [css](https://developer.mozilla.org/en-US/docs/Web/CSS), [javaScript](https://www.javascript.com/)
-- [React](https://reactjs.org/), [React Hooks](https://reactjs.org/docs/hooks-intro.html), [React Router](https://reactrouter.com/), [Styled Components](https://styled-components.com/)
-- [React leaftlet](https://react-leaflet.js.org/), [Axios](https://github.com/axios/axios), [Moment.js](https://momentjs.com/)
-- [React Icons](https://react-icons.github.io/react-icons/), [Dotenv](https://www.npmjs.com/package/dotenv), [Netlify](https://www.netlify.com/)
+- [html](https://html.com/) [css](https://developer.mozilla.org/en-US/docs/Web/CSS) [javaScript](https://www.javascript.com/)
+- [React](https://reactjs.org/) [React Hooks](https://reactjs.org/docs/hooks-intro.html) [React Router](https://reactrouter.com/) [Styled Components](https://styled-components.com/)
+- [React leaftlet](https://react-leaflet.js.org/) [Axios](https://github.com/axios/axios) [Moment.js](https://momentjs.com/)
+- [React Icons](https://react-icons.github.io/react-icons/) [Dotenv](https://www.npmjs.com/package/dotenv) [Netlify](https://www.netlify.com/)
 - [World weather online](https://www.worldweatheronline.com/)
 
 ## Website content

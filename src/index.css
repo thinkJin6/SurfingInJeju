@@ -143,3 +143,17 @@ body {
     font-size: 50%; /* 1rem = 8px */
   }
 }
+
+/* 900px */
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%; /* 1rem = 8px */
+  }
+}
+
+/* 600px */
+@media only screen and (max-width: 40.625em) {
+  .btn--white::after {
+    display: none;
+  }
+}

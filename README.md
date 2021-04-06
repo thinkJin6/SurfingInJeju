@@ -1,4 +1,4 @@
-# About the page
+# Surfing in Korea (surf forecast app)
 
 Check surf forecasts and get info of popular surf spots in Korea on [live demo](https://surfinginkorea.netlify.app/)!
 

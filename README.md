@@ -1,9 +1,10 @@
 # About the page
 
-**Surfing in Korea** is a web application which gives informations and forecast of popular surf spots in Korea.
+Check surf forecasts and get info of popular surf spots in Korea on [live demo](https://surfinginkorea.netlify.app/)!
 
 ![picture](./src/assets/main.png)
-Check surf forecasts and get info of popular surf spots in Korea on [live demo](https://surfinginkorea.netlify.app/)!
+
+**Surfing in Korea** is a web application which gives informations and forecast of popular surf spots in Korea.
 
 ## Built with
 
